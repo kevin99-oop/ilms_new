@@ -1,0 +1,122 @@
+{% extends 'loan/adminbase.html' %}
+{% load widget_tweaks %}
+{% block content %}
+<style>
+  @media screen and (max-height: 736px) {
+ #google_translate_element {
+    width: 80px;
+    margin-top: 10px;
+}
+.goog-te-combo{
+    width: 64px;
+    border: outset #0000;
+    font-size: 13px;
+
+  }
+  .goog-te-gadget .goog-te-combo {
+    margin-left: -4px;
+  }
+  .goog-logo-link{
+    text-indent: -9999px;  
+    overflow: hidden; 
+    font-size: 0px!important;
+  }
+  .small, small {
+    font-size: 57%;
+    font-weight: 800;
+}
+.form
+{
+  margin-left: 22px;
+    margin-right: 22px;
+}
+ }
+</style>
+   <!-- Page Heading -->
+   <div class=" container d-sm-flex align-items-center justify-content-between mb-4 mt-4">
+    <h1 class="h3 mb-0 text-gray-800">Admin Dashboard</h1>
+    <span id='date-time' class="small"></span>
+    </div>  
+    <div class="container">
+      <div class="row">
+        <!-- View Category  -->
+        <div class="col-xl-3 col-md-6 mb-4">
+          <div class="card border-left-primary shadow  py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <a href="admin-view-category" style="text-decoration: none;color:white;">
+                  <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">View Category </div>
+                </div>
+              </a>
+                <div class="col-auto">
+                  <i class="fa fa-eye fa-2x text-gray-300"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Add Category -->
+        <div class="col-xl-3 col-md-6 mb-4">
+          <div class="card border-left-primary shadow  py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <a href="admin-add-category" style="text-decoration: none;color:white;">
+                  <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Add Category</div>
+                </div>
+              </a>
+                <div class="col-auto">
+                  <i class="fas fa-plus fa-2x text-gray-300"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Update Category -->
+        <div class="col-xl-3 col-md-6 mb-4">
+          <div class="card border-left-primary shadow  py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <a href="admin-update-category" style="text-decoration: none;color:white;">
+                  <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Update Category</div>
+                </div>
+              </a>
+                <div class="col-auto">
+                  <i class="fas fa-edit fa-2x text-gray-300"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Delete Category -->
+        <div class="col-xl-3 col-md-6 mb-4">
+          <div class="card border-left-primary shadow  py-2">
+            <div class="card-body">
+              <div class="row no-gutters align-items-center">
+                <div class="col mr-2">
+                  <a href="admin-delete-category" style="text-decoration: none;color:white;">
+                  <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Delete Category</div>
+                </div>
+              </a>
+                <div class="col-auto">
+                  <i class="fas fa-trash fa-2x text-gray-300"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+
+<script src="http://netdna.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+
+<script>
+  var dt = new Date();
+  document.getElementById('date-time').innerHTML=dt;
+</script>
+
+
+{% endblock content %}

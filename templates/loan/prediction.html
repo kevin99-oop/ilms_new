@@ -1,0 +1,133 @@
+{% extends 'loan/adminbase.html' %}
+{%load static%}
+{% load widget_tweaks %}
+{% block content %}
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<style type="text/css">
+
+</style>
+</head>
+
+<body>
+ <!-- Main Content Here -->
+ <div class="card o-hidden border-0 shadow-lg my-5">
+	<div class="card-body p-0">
+	  <div class="row">
+		<div class="col-lg-5">
+		  <img src="{% static 'img/prediction.jpg' %}" class="rounded w-100" style="margin-top: 40%;"  alt="Contact_us_image">
+		</div>
+		<div class="col-lg-7">
+		  <div class="p-5">
+			<div class="text-center">
+			  <h1 class="h4 text-gray-900 mb-4">Bank Loan Prediction using Machine Learning!</h1>
+			  {% if messages %}
+			  <p class="messages">
+				  {% for message in messages %}
+				  <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+				  {% endfor %}
+			  </p>
+			  {% endif %}
+			</div>
+			<p class="small text-center">
+			  Please write your Loan Amount, Repayment in months and Interest Rate and get to know what will be your EMI, Interest payable and Total payable amount.   
+		  </p>
+
+		  <form method="post">
+			  {% csrf_token %}
+			  <div class="row">
+				<div class="col-sm">
+					<label for="firstname">First Name</label>
+					{% render_field form.firstname|attr:'required:true'  class="form-control" placeholder="First Name" %} 
+				</div>
+				<div class="col-sm">
+					<label for="lastname">Last Name</label>
+					{% render_field form.lastname|attr:'required:true'  class="form-control" placeholder="Last Name" %} 
+				</div>
+				<div class="col-sm">
+					<label for="Dependents">Dependents</label>
+					{% render_field form.Dependents|attr:'required:true'  class="form-control" placeholder="Dependents" %} 
+				</div>
+			  </div>
+			  <div class="row">
+				<div class="col-sm">
+					<label for="Applicantincome">Applicant Income</label>
+					{% render_field form.ApplicantIncome|attr:'required:true'  class="form-control" placeholder="Applicant Income" %}
+				</div>
+				<div class="col-sm">
+					<label for="CoapplicantIncome">Coapplicant Income</label>
+					{% render_field form.CoapplicantIncome|attr:'required:true'  class="form-control" placeholder="Coapplicant Income" %}
+				</div>
+				<div class="col-sm">
+					<label for="Loanamount">Loan Amount</label>
+					{% render_field form.LoanAmount|attr:'required:true'  class="form-control" placeholder="Loan Amount" %}
+				</div>
+			  </div>
+			  <div class="row">
+				<div class="col-sm">
+					<label for="Loan_Amount_Term">Loan Amount Term</label>
+					{% render_field form.Loan_Amount_Term|attr:'required:true'  class="form-control" placeholder="Loan Amount Term" %}
+				</div>
+				<div class="col-sm">
+					<label for="Credit_History">Credit History</label>
+					{% render_field form.Credit_History|attr:'required:true'  class="form-control" placeholder="Credit_History"%}
+				</div>
+				<div class="col-sm">
+					<label for="Gender">Gender</label>
+					{% render_field form.Gender|attr:'required:true'  class="form-control" placeholder="Gender"%}
+				</div>
+			  </div>
+			  <div class="row">
+				<div class="col-sm">
+					<label for="Married">Married</label>
+					{% render_field form.Married|attr:'required:true'  class="form-control" placeholder="Married"%}
+				</div>
+				<div class="col-sm">
+					<label for="Education">Education</label>
+					{% render_field form.Education|attr:'required:true'  class="form-control" placeholder="Education"%}
+				</div>
+				<div class="col-sm">
+					<label for="Self_Employed">Self_Employed</label>
+					{% render_field form.Self_Employed|attr:'required:true'  class="form-control" placeholder="Self_Employed"%}
+				</div>
+			  </div>
+				
+				
+				
+				
+				
+				
+				
+				<label for="Property_Area">Property_Area</label>
+            	{% render_field form.Property_Area|attr:'required:true'  class="form-control" placeholder="Property_Area"%}
+			  <br/>
+			  
+			<button type="submit"  class="col-12 btn btn-primary">Submit</button>
+		</form>
+	
+			
+			<hr>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </div>
+  
+  
+  
+</div>
+
+</body>
+</html>
+
+
+{% endblock content %}

@@ -1,0 +1,119 @@
+{% extends 'loan/adminbase.html' %}
+{% load widget_tweaks %}
+{% block content %}
+<head>
+  <style media="screen">
+    input[type=text], select,input[type=number] ,input[type=password], textarea{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+
+  input[type=submit] {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  input[type=submit]:hover {
+    background-color: #45a049;
+  }
+
+
+   label #sidebar_btn {
+      z-index: 1;
+      color: #fff;
+      position: fixed;
+      cursor: pointer;
+      left: 300px;
+      padding-left: 60px;
+      margin-top:15px;
+      font-size: 20px;
+      
+      transition: 0.5s;
+      transition-property: color;
+    }
+    .left_area{
+      margin-top:8px;
+    }
+    .form{
+      margin-left: 200px;
+    margin-right: 200px;
+    }
+    @media screen and (max-height: 736px) {
+ #google_translate_element {
+    width: 80px;
+    margin-top: 10px;
+}
+.goog-te-combo{
+    width: 64px;
+    border: outset #0000;
+    font-size: 13px;
+
+  }
+  .goog-te-gadget .goog-te-combo {
+    margin-left: -4px;
+  }
+  .goog-logo-link{
+    text-indent: -9999px;  
+    overflow: hidden; 
+    font-size: 0px!important;
+  }
+  .small, small {
+    font-size: 57%;
+    font-weight: 800;
+}
+.form
+{
+  margin-left: 22px;
+    margin-right: 22px;
+}
+ }
+  </style>
+
+
+</head>
+
+<br><br>
+<h3 style="text-align:center;">UPDATE CUSTOMER</h3>
+<div>
+  <form method="post" autocomplete="off" class="form"enctype="multipart/form-data">
+      {% csrf_token %}
+        <label for="first_name">First Name</label>
+        {% render_field userForm.first_name class="form-control" placeholder="First Name" %}
+        <label for="last_name">Last Name</label>
+        {% render_field userForm.last_name class="form-control" placeholder="Last Name" %}
+          <label for="Contact">Contact</label>
+          {% render_field customerForm.mobile class="form-control" placeholder="Contact" %}
+            <label for="address">Address</label>
+          {% render_field customerForm.address class="form-control" placeholder="Address" %}
+          
+        <label for="username">Username</label>
+        {% render_field userForm.username class="form-control" placeholder="Username" %}
+          <label for="password">Password</label>
+        {% render_field userForm.password class="form-control" placeholder="Password" %} <br><br>
+        <label for="profile_pic">Document Upload</label>
+          <input name="profile_pic"   value="dumy value" type="hidden">
+          <input type=file name="file" class="form-control border-0">
+          <label for="mobile">Credit Score</label>
+          {% render_field customerForm.credit_score|attr:'required:true'  class="form-control" placeholder="Credit Score" autocomplete="off" %}
+          <label for="mobile">Asset Value</label>
+          {% render_field customerForm.asset_value|attr:'required:true'  class="form-control" placeholder="Asset Value" autocomplete="off" %}
+          <label for="mobile">Monthly Income</label>
+          {% render_field customerForm.monthly_income|attr:'required:true'  class="form-control" placeholder="Monthly Income" autocomplete="off" %}
+<br><br>
+    <input type="submit" value="Update">
+  </form>
+</div>
+
+<br><br><br><br><br><br><br><br>
+{% endblock content %}

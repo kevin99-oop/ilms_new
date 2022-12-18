@@ -1,0 +1,127 @@
+{% extends 'customer/customerbase.html' %}
+{% load widget_tweaks %}
+{% block content %}
+<style>
+  @media screen and (max-height: 736px) {
+  .small, small {
+    font-size: 57%;
+    font-weight: 800;
+}
+}
+
+@media screen and (max-height: 736px) {
+ #google_translate_element {
+    width: 80px;
+    margin-top: 10px;
+}
+.goog-te-combo{
+    width: 64px;
+    border: outset #0000;
+    font-size: 13px;
+
+  }
+  .goog-te-gadget .goog-te-combo {
+    margin-left: -4px;
+  }
+  .goog-logo-link{
+    text-indent: -9999px;  
+    overflow: hidden; 
+    font-size: 0px!important;
+  }
+ 
+ }
+</style>
+  <div class=" container d-sm-flex align-items-center justify-content-between mb-4 mt-4">
+    <h1 class="h3 mb-0 text-gray-800"> Dashboard</h1>
+    <span id='date-time' class="small"></span>
+    </div> 
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-3 col-md-6 mb-4 rounded col-12">
+        <div class="card border-left-warning shadow py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <a href="apply-loan" style="text-decoration: none;color:white;">
+                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Available loan</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">{{available_loan}}</div>
+                </a>
+              </div>
+              <div class="col-auto">
+                <i class="fa fa-check fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-3 col-md-6 mb-4 rounded col-12" >
+        <div class="card border-left-warning shadow py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <a href="history" style="text-decoration: none;color:white;">
+                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Applied Loan</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">{{applied_loan}}</div>
+                </a>
+              </div>
+              <div class="col-auto">
+                <i class="fa fa-check-square fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-xl-3 col-md-6 mb-4 rounded col-12">
+        <div class="card border-left-warning shadow py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                
+                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Loan Categories</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">{{total_category}}</div>
+                
+              </div>
+              <div class="col-auto">
+                <i class="fa fa-list-ul fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-xl-3 col-md-6 mb-4 rounded col-12">
+        <div class="card border-left-warning shadow py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <a href="question-history" style="text-decoration: none;color:white;">
+                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Total Question Asked</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">{{total_question}}</div>
+                </a>
+              </div>
+              <div class="col-auto">
+                <i class="fa fa-question-circle fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<br><br>
+
+
+
+
+<script src="http://netdna.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+<script>
+  var dt = new Date();
+  document.getElementById('date-time').innerHTML=dt;
+</script>
+
+
+
+{% endblock content %}

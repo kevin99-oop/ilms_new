@@ -1,0 +1,67 @@
+{% extends 'customer/customerbase.html' %}
+
+{% block content %}
+{%load static%}
+
+<head>
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+ <!-- Begin Page Content -->
+ <div class="container-fluid">
+
+  <!-- Page Heading -->
+  <div class="d-sm-flex align-items-center justify-content-between mb-4 mt-4">
+  <h1 class="h3 mb-0 text-gray-800">Profile</h1>
+  </div>          
+
+  <!-- Main Content Here -->
+  <div class="row">
+    <div class="col-lg-2"></div>
+  
+    <div class="col-lg-3 my-5">
+      <h4> Document Uploaded</h4>
+      <img src="{% static user.customer.profile_pic %}" alt="Profile Pic" height="300px" width="300px"/>
+    </div>
+    <div class="card o-hidden border-0 shadow-lg my-5 col-lg-5 ">
+    
+      <div class="card-body shadow-lg">
+        <h2> Profile Of Customer </h2>
+        <div class="row mb-4">
+          <div class="col">
+            <strong>Full Name:</strong> {{user.first_name}} {{user.last_name}}!
+          </div>
+          <div class="col">
+            <strong>Contact: </strong> {{user.customer.mobile}}
+          </div>
+        </div>
+        <div class="row mb-4">
+          <div class="col">
+            <strong>Address: </strong> {{user.customer.address}}
+           </div>
+           <div class="col">
+             <strong>Credit Score: </strong> {{user.customer.credit_score}}
+            </div>
+        </div>
+        <div class="row mb-4">
+          <div class="col">
+            <strong>Asset Value: </strong> {{user.customer.asset_value}}
+           </div>
+           <div class="col">
+            <strong>Date Joined: </strong> {{user.date_joined}}
+            </div>
+        </div>
+
+
+          <p class="mt-5"> </p>
+          <p class="mt-5"> </p>
+      </div>
+    </div>
+  </div>
+  
+  
+  
+</div>
+{% endblock content %}

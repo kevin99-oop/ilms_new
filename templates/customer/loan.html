@@ -1,0 +1,94 @@
+
+{% load static %}
+
+{% block content %}
+{% include 'customer/customerbase.html' %}
+<style>
+  .loam-card:hover{
+    border: 1px solid #49A774;
+    box-shadow: 2px 0px 5px 5px #bcc0ce!important;
+  }
+  @media screen and (max-height: 736px) {
+  .small, small {
+    font-size: 57%;
+    font-weight: 800;
+}
+}
+
+@media screen and (max-height: 736px) {
+ #google_translate_element {
+    width: 80px;
+    margin-top: 10px;
+}
+.goog-te-combo{
+    width: 64px;
+    border: outset #0000;
+    font-size: 13px;
+
+  }
+  .goog-te-gadget .goog-te-combo {
+    margin-left: -4px;
+  }
+  .goog-logo-link{
+    text-indent: -9999px;  
+    overflow: hidden; 
+    font-size: 0px!important;
+  }
+ 
+ }
+</style>
+<div class="container d-sm-flex align-items-center justify-content-between mb-4 mt-4">
+  <h1 class="h3 mb-0 text-gray-800">Loan Category</h1>
+  <span id='date-time' class="small"></span>
+</div>   
+<div class="row row-cols-1 row-cols-md-3 g-4 p-5 mt-5 ">
+  
+    <div class="col-md-4 col-sm-8 col-12">
+      <div class="card loam-card shadow-lg">
+        <img src="{% static 'img/loan/home.jpg' %}" class="card-img-top " alt="Home Loan">
+        <div class="card-body">
+          <h5 class="card-title">Home Loan</h5>
+          <p class="card-text">
+            Buying a house is a dream for many and involves a lot of financial planning. Bank Home Loans makes it simpler for those who want to realise this dream.                             
+          </p>
+        </div>
+        <div class="card-footer text-center">
+          <small class="text-muted text-center"><a class="btn btn-primary" href="{% url 'apply-loan' %}" role="button">Apply For Home Loan</a></small>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 col-sm-8 col-12 mt-5">
+        <div class="card loam-card shadow-sm">
+          <img src="{% static 'img/loan/car.jpg' %}" class="card-img-top w-100 h-100 mt-5" alt="Home Loan">
+          <div class="card-body mt-5">
+            <h5 class="card-title mt-3">Car Loan</h5>
+            <p class="card-text">
+              Buying a house is a dream for many and involves a lot of financial planning. Bank Home Loans makes it simpler for those who want to realise this dream.                             
+              </p>
+          </div>
+          <div class="card-footer text-center">
+            <small class="text-muted text-center"><a class="btn btn-primary" href="{% url 'apply-loan' %}" role="button">Apply For Car Loan</a></small>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-8 col-12 mt-5">
+        <div class="card loam-card shadow-lg">
+          <img src="{% static 'img/loan/personal.jpg' %}" class="card-img-top  " alt="Home Loan">
+          <div class="card-body">
+            <h5 class="card-title">Personal Loan</h5>
+            <p class="card-text">
+              Buying a house is a dream for many and involves a lot of financial planning. Bank Home Loans makes it simpler for those who want to realise this dream.                             
+              </p>
+          </div>
+          <div class="card-footer text-center">
+            <small class="text-muted text-center"><a class="btn btn-primary" href="{% url 'apply-loan' %}" role="button">Apply For Personal Loan</a></small>
+          </div>
+        </div>
+      </div>
+  </div>
+  <script>
+    var dt = new Date();
+    document.getElementById('date-time').innerHTML=dt;
+</script>
+    
+{% endblock content %}

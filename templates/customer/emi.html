@@ -1,0 +1,186 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Loan Management System G-15</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+
+  <link href="/static/css/sb-admin-2.min.css" rel="stylesheet">
+ <!-- Date Time Picker CSS -->
+  
+  <!-- Date Time Picker CSS -->
+  <style>#outer{width:90%;max-width:600px;background:#fff;margin:0 auto}
+    #cover{border:2px solid #111;padding:15px 0}
+    .main{table-layout:fixed;width:94%;border:0;border-collapse:collapse;margin:0 auto}
+    .main td{padding:0 8px;vertical-align:middle;border:0}
+    .main input{width:100%;border:1px solid #ccc;margin:2px 0;padding:0 2%;height:22px;text-align:right}.ac{text-align:center}.b{font-weight:bold}
+    .main select{width:100%;border:1px solid #ccc;margin:2px 0;background:#fff;height:22px}.w50{width:50%}.main button{width:100%;font-weight:bold;margin:3px 0}
+    @media screen and (max-height: 736px) {
+  .card-body 
+  {
+    margin: -20px;
+    padding: 0px;
+  }
+}
+@media screen and (max-height: 736px) {
+  .small, small {
+    font-size: 57%;
+    font-weight: 800;
+}
+}
+
+@media screen and (max-height: 736px) {
+ #google_translate_element {
+    width: 80px;
+    margin-top: 10px;
+}
+.goog-te-combo{
+    width: 64px;
+    border: outset #0000;
+    font-size: 13px;
+
+  }
+  .goog-te-gadget .goog-te-combo {
+    margin-left: -4px;
+  }
+  .goog-logo-link{
+    text-indent: -9999px;  
+    overflow: hidden; 
+    font-size: 0px!important;
+  }
+ 
+ }
+    </style>
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">    
+    {% include 'customer/customerbase.html' %}
+  
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        {% block content %}
+         <!-- Begin Page Content -->
+   <div class="container-fluid">
+
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4 mt-4">
+    <h1 class="h3 mb-0 text-gray-800">  EMI Calculator</h1>
+    <span id='date-time' class="small"></span>
+    </div>          
+
+    <!-- Main Content Here -->
+    <div class="card o-hidden border-0 shadow-lg my-5">
+      <div class="card-body p-0">
+        <div class="row">
+          <div class="col-lg-6">
+            <img src="{% static 'img/emi.jpg' %}" class="rounded w-100" style="margin-top: 10%;"  alt="Contact_us_image">
+          </div>
+          <div class="col-lg-6">
+            <div class="p-5">
+              <div class="text-center">
+                <h1 class="h4 text-gray-900 mb-4">EMI Calculator!</h1>
+              </div>
+              <p class="small text-center">
+                Please write your Loan Amount, Repayment in months and Interest Rate and get to know what will be your EMI, Interest payable and Total payable amount.   
+            </p>
+              <form class="card-body">
+                <table class=main>
+                  <col class=w50>
+                  <col class=w50>
+                  <tr>
+                    <td class="col-5">Loan Amount<td>
+                      <input  class="form-control col-12" type="number" placeholder="Loan Amount" aria-label="Loan Amount example" id="loan1">
+                      <tr>
+                        <td>Repayment in months<td>
+                        <input class="form-control" type="number" placeholder="Repayment in months" aria-label="Repayment in months example" id="months1"><tr>
+                          <td>Interest Rate<td>
+                            <input class="form-control" type="number" placeholder="Interest Rate" aria-label="Interest Rate example" id="rate1" onchange=emi();><tr>
+                              <td>
+                                <button type="reset" class="btn btn-success btn-block">Reset</button>
+                                <td>
+                                  <button type="button" class="btn btn-success btn-block" onclick='emi()'>Submit</button>
+                                  <tr>
+                                    <td>EMI<td>
+                                      <input class="form-control" type="number" placeholder="EMI Is" aria-label="EMI example"  id="pay1" disabled>
+                                      <tr>
+                                        <td>Interest payable<td>
+                                          <input class="form-control" type="number" placeholder="Interest" aria-label="Interest example"   id="tintt1" disabled><tr>
+                                            <td>Total payable<td>
+                                              <input class="form-control" type="number" placeholder="EMI" aria-label="EMi example"    id="gt1" disabled><tr></tr> 
+                                            </table>
+                                          </form>
+              <hr>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+</div>
+       
+         {% endblock content %}
+         <div id="content"></div>
+           
+      </div>
+      <!-- End of Main Content -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+ 
+  <!-- Bootstrap core JavaScript-->
+  
+  
+  <script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+  <!-- Custom scripts for all pages-->
+  <script src="/static/js/sb-admin-2.min.js"></script>
+
+  <script>
+function emi()
+{if(document.getElementById('loan1').value==null || document.getElementById('loan1').value.length==0 || document.getElementById('months1').value==null || document.getElementById('months1').value.length==0 || document.getElementById('rate1').value==null || document.getElementById('rate1').value.length==0 ) {document.getElementById('pay1').value='Data Reqd.'}else {var pay1='';var princ1= document.getElementById('loan1').value;var term1= document.getElementById('months1').value;var intr1=document.getElementById('rate1').value / 1200;document.getElementById('pay1').value =Math.round(princ1 * intr1 / (1-(Math.pow(1/(1 + intr1), term1)))*100)/100; document.getElementById('gt1').value= Math.round((document.getElementById('pay1').value * document.getElementById('months1').value)*100)/100;document.getElementById('tintt1').value=Math.round((document.getElementById('gt1').value*1 - document.getElementById('loan1').value*1)*100)/100}}
+
+</script>
+<script>
+  var dt = new Date();
+  document.getElementById('date-time').innerHTML=dt;
+</script>
+
+
+<script>
+  function googleTranslateElementInit() {
+new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+}
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+</body>
+
+</html>

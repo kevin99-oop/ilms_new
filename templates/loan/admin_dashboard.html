@@ -1,0 +1,179 @@
+{% extends 'loan/adminbase.html' %}
+{% load widget_tweaks %}
+{% block content %}
+<style>
+  @media screen and (max-height: 736px) {
+ #google_translate_element {
+    width: 80px;
+    margin-top: 10px;
+}
+.goog-te-combo{
+    width: 64px;
+    border: outset #0000;
+    font-size: 13px;
+
+  }
+  .goog-te-gadget .goog-te-combo {
+    margin-left: -4px;
+  }
+  .goog-logo-link{
+    text-indent: -9999px;  
+    overflow: hidden; 
+    font-size: 0px!important;
+  }
+  .small, small {
+    font-size: 57%;
+    font-weight: 800;
+}
+ }
+</style>
+   <!-- Page Heading -->
+   <div class=" container d-sm-flex align-items-center justify-content-between mb-4 mt-4">
+    <h1 class="h3 mb-0 text-gray-800">  Admin Dashboard</h1>
+    <span id='date-time' class="small"></span>
+    </div>  
+  <div class="container">
+    <div class="row">
+      <!-- Total users -->
+      <div class="col-xl-4 col-md-6 mb-4">
+        <div class="card border-left-primary shadow  py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <a href="admin-view-customer" style="text-decoration: none;color:white;">
+                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Registered User</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">{{total_user}}</div>
+              </div>
+            </a>
+              <div class="col-auto">
+                <i class="fas fa-users fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Total Loans -->
+      <div class="col-xl-4 col-md-6 mb-4">
+        <div class="card border-left-primary shadow  py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <a href="admin-view-loan" style="text-decoration: none;color:white;">
+                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Listed Loans</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">{{total_loan}}</div>
+              </div>
+            </a>
+              <div class="col-auto">
+                <i class="fa fa-list-ol fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+       <!-- Listed Categories -->
+       <div class="col-xl-4 col-md-6 mb-4">
+        <div class="card border-left-primary shadow  py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <a href="admin-view-category" style="text-decoration: none;color:white;">
+                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Listed Categories</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">{{total_category}}</div>
+              </div>
+            </a>
+              <div class="col-auto">
+                <i class="fa fa-list-alt fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>     
+    </div>
+
+    <br>
+    <div class="row">
+      <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <a href="admin-view-loan-holder" style="text-decoration: none;color:white;">
+                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Applied Loan Holder</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">{{total_loan_holder}}</div>
+              </div>
+            </a>
+              <div class="col-auto">
+                <i class="fas fa-user-cog fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>  
+      <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+          <div class="card-body">
+            <div class="row no-gutters align-items-center">
+              <div class="col mr-2">
+                <a href="admin-view-approved-loan-holder" style="text-decoration: none;color:white;">
+                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Approved Loan Holder</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">{{approved_loan_holder}}</div>
+              </div>
+            </a>
+              <div class="col-auto">
+                <i class="fas fa-user-check fa-2x text-gray-300"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>     
+    
+    <div class="col-xl-3 col-md-6 mb-4">
+      <div class="card border-left-primary shadow h-100 py-2">
+        <div class="card-body">
+          <div class="row no-gutters align-items-center">
+            <div class="col mr-2">
+              <a href="admin-view-disapproved-loan-holder" style="text-decoration: none;color:white;">
+              <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Disapproved Loan Holder</div>
+              <div class="h5 mb-0 font-weight-bold text-gray-800">{{disapproved_loan_holder}}</div>
+            </div>
+          </a>
+            <div class="col-auto">
+              <i class="fas fa-user-times fa-2x text-gray-300"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>     
+
+      
+
+  <div class="col-xl-3 col-md-6 mb-4">
+    <div class="card border-left-primary shadow h-100 py-2">
+      <div class="card-body">
+        <div class="row no-gutters align-items-center">
+          <div class="col mr-2">
+            <a href="admin-view-waiting-loan-holder" style="text-decoration: none;color:white;">
+            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Pending Loan Holder</div>
+            <div class="h5 mb-0 font-weight-bold text-gray-800">{{waiting_loan_holder}}</div>
+          </div>
+        </a>
+          <div class="col-auto">
+            <i class="fas fa-user-clock  fa-2x text-gray-300"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>     
+</div></div></div>
+
+<br><br><br><br><br><br>
+
+<script src="http://netdna.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
+<script>
+  var dt = new Date();
+  document.getElementById('date-time').innerHTML=dt;
+</script>
+
+
+
+{% endblock content %}
